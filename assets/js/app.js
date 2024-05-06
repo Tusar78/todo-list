@@ -8,10 +8,8 @@ const addTodo = getId("addTodo");
 
 // console.log(inputField, taskList)
 const getD = localStorage.getItem("todo");
-console.log(getD);
 
 const data = getD ? JSON.parse(getD) : [];
-console.log(data);
 
 addTodo.addEventListener("click", (e) => {
     let mydata = { name: inputField.value };
@@ -19,11 +17,13 @@ addTodo.addEventListener("click", (e) => {
     console.log(data);
     localStorage.setItem("todo", JSON.stringify(data));
     let p = document.createElement("p");
-    p.innerText = e.target.value;
+    p.innerText = inputField.value;
     taskList.append(p);
 });
 
-// const getD = JSON.parse(localStorage.getItem("todo"));
-// getD.forEach((e) => {
-//   console.log(e.name);
-// });
+
+data.forEach((e) => {
+    let p = document.createElement("p");
+    p.innerText = e.name;
+    taskList.append(p);
+});
