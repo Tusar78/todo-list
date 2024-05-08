@@ -10,6 +10,9 @@ const taskContainer = getId("tasks");
 const taskCount = document.querySelector(".task-count");
 const multipleTask = document.querySelector(".multiple-task");
 
+
+let count = 0;
+
 // Todo List Add
 const todoList = () => {
   // Get Value From Input Field
@@ -33,21 +36,21 @@ const todoList = () => {
     </div>
   `
 
-  const taskWrap = document.createElement("div");
-  taskWrap.classList.add("task-wrap");
-  taskWrap.innerHTML = `
-    <input type="checkbox" name="task-1" id="radio-check" />
-    <label id="task-name">${inputFieldValue}</label>
-  `;
-
   taskContainer.append(taskItem);
-
+  count += 1;
+  console.log(count);
+  
   const currentTask = document.querySelectorAll('.delete-wrap');
   for (const curTask of currentTask) {
     curTask.addEventListener('click', function() {
       this.parentNode.parentNode.remove();
+      count = count - 1;
+      console.log(count);
     })
   }
+
+
+
 };
 
 // Event handler for Add Btn
