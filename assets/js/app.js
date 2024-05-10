@@ -48,9 +48,6 @@ const todoList = () => {
       console.log(count);
     })
   }
-
-
-
 };
 
 // Event handler for Add Btn
